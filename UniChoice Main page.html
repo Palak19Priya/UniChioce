@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <title>UniChoice</title>
+        <link href="stylesmainPage.css" rel="stylesheet">
+    </head>
+    <body topmargin="18">
+        <div class="container"  id="home" >
+            <nav>
+                <!-- Logo as a Button -->
+                <a href="#home">
+                    <img src="logo.jpg" alt="UniChoice Logo" class="logo">
+                </a>
+            
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <button class="dropdown-btn" onclick="toggleDropdown()">&#9776;</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="#about">About Us</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#feedback">User Feedback</a>
+                    </div>
+                </div>
+                
+            </nav>
+        </div>    
+        <br><br><br>
+        <div class="content">
+            <div class="left-column">
+                <h1 class="head">UniChoice</h1>
+                <h2 class="headline">Path to Academic Excellence!</h2>
+                <p class="description">
+                    UniChoice simplifies the global university application process, providing guidance and resources for informed decisions. From university selection to application preparation, we support students at every stage. Choose smart with UniChoice.
+                    <center><button class="btn" onclick="location.href='#about'">Learn More!</button></center>
+                </p>
+            </div>
+            <div class="right-column">
+                <div class="box">
+                    <font class="get_started">Get Started!</font>
+                    <br><br>
+                    <button class="btn" onclick="window.location.href='registerPage.html'">Sign Up</button><br><br>
+                    <button class="btn" onclick="window.location.href='loginForm.html'">Login</button><br><br>
+                    <button class="btn">Incognito Mode</button>
+                    <br>
+                    <p>*In case you don't want to reveal your detail/identity.</p>
+                </div>
+            </div>
+        </div>
+        <br id="about">
+        <br>
+        <br >
+        <hr>
+        <br><h1  class="aboutUs"><center>About Us</center></h1>
+        <p style="text-align:justify; font-size: 20px;  margin-left: 5%;  margin-right: 50%;">At UniChoice, we are committed to
+            revolutionizing the way students select their educational paths. Our platform provides a comprehensive database of universities, 
+            colleges, and courses worldwide, empowering students to make informed decisions about their academic futures. UniChoice has quickly
+             become a trusted resource for students, parents, and educators alike. </p>
+        <p  style="text-align:justify; font-size:20px;  margin-left: 50%; margin-right: 5%;">UniChoice project revolves around the creation of a user-friendly web application. Through this platform, users can virtually tour various colleges, accessing essential information such as campus facilities, academic programs, extracurricular activities, and more. The project also incorporates advanced search and filtering features to help users find colleges that align with their preferences and requirements.</p>
+        <br><br>
+        <center><button class="btn" onclick="location.href='#home'">Find your college/university!</button></center>
+        <br><br><br>
+        <hr id="contact">
+        <br><h1 class="aboutUs"><center>Contact Information</center></h1>
+        <div class="contact-info">
+            
+            <p><strong>Address:</strong> 123 Unichoice Street, Knowledge City, EduWorld</p>
+            <p><strong>Email:</strong> support@unichoice.com</p>
+            <p><strong>Phone:</strong> +1 234 567 8900</p>
+        </div>
+<br>
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <h2>Follow Us</h2>
+            <a href="https://facebook.com/unichoice" target="_blank">Facebook</a> | 
+            <a href="https://twitter.com/unichoice" target="_blank">Twitter</a> | 
+            <a href="https://linkedin.com/company/unichoice" target="_blank">LinkedIn</a> |
+            <a href="https://instagram.com/company/unichoice" target="_blank">Instagram</a>
+        </div>
+        <br><br><br>
+        <hr id="feedback">
+        <br>
+        <h1 class="feedback"><center>Feedback/Query</center></h1>
+        <br>
+        <div class="rating">
+            <h2>Rate Us!</h2>
+            <label for="rating"></label>
+            <div class="rating-container">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">&#9733;</label>
+            </div>
+            <div class="button-container">
+            <button class="btn-submit" onclick="submitRating()">Submit Feedback</button> 
+            <button class="btn-reset" onclick="resetRating()">Reset</button>
+        </div>
+        </div>
+        <br>
+        <div class="feedback-form">
+            <h2>We Value Your Feedback</h2>
+            <form id="feedbackForm">
+                <label for="name">Name (Optional)</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
+
+                <label for="email">Email (Optional)</label>
+                <input type="email" id="email" name="email" placeholder="Your Email">
+
+                <label for="feedbackType">Type of Feedback *</label>
+                <select id="feedbackType" name="feedbackType" required>
+                    <option value="" disabled selected>Select Feedback Type</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="query">Query</option>
+                    <option value="appreciation">Appreciation</option>
+                </select>
+
+                <label for="comments">Your Feedback *</label>
+                <textarea id="comments" name="comments" rows="5" placeholder="Write your feedback here..." required></textarea>
+
+                <button class="feedbacksub" type="submit">Submit Feedback</button><br>
+                <button class="feedbackreset" type="reset">Reset</button>
+            </form>
+        </div>
+    </div>
+    </body>
+    <script>
+
+        function submitRating() {
+            const rating = document.querySelector('input[name="rating"]:checked');
+            if (rating) {
+                alert(`Thank you for rating us ${rating.value} stars!`);
+            } else {
+                alert('Please select a rating before submitting.');
+            }
+        }
+    
+        function resetRating() {
+            const checkedRating = document.querySelector('input[name="rating"]:checked');
+            if (checkedRating) {
+                checkedRating.checked = false;
+            }
+        }
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your feedback!');
+            this.reset();
+        });
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Optional: Close the dropdown when clicking outside of it
+    window.addEventListener('click', function (event) {
+        const dropdown = document.getElementById('dropdownMenu');
+        const button = document.querySelector('.dropdown-btn');
+        if (event.target !== dropdown && event.target !== button) {
+            dropdown.style.display = 'none';
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,304 @@
+* {
+    background-color: rgb(20, 6, 65);
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.aboutUs {
+    color: #f2a365;
+}
+
+.feedback {
+    color: #f2a365;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #09549e; /* Blue background */
+    padding: 10px 20px; /* Space around content */
+    position: fixed; /* Fix the navigation bar at the top */
+    top: 10; /* Align to the top of the page */
+    width: 95%; /* Make it span the entire width */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for visual separation */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 70px; /* Add margin to prevent content from overlapping with fixed navbar */
+}
+
+
+.logo {
+    height: 57px; /* Controls the logo size */
+    cursor: pointer; /* Makes the logo clickable */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 20;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-width: 260px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-btn {
+    font-size: 23px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1; /* Equal width for both columns */
+}
+
+.left-column {
+    text-align: justify;
+    margin-right: 20px;
+}
+
+.head {
+    font-size: 50px;
+    color: #f2a365;
+    margin-bottom: 10px;
+}
+
+.headline {
+    font-size: 25px;
+    color: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+}
+
+/* Right Column Styles */
+.right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    text-align: center;
+    background-color: rgb(31, 15, 82);
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.btn {
+    background-color: #f7b685;
+    color: #140641;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #f2f2f2;
+    color: #140641;
+}
+
+.get_started {
+    color: white;
+    font-size: 22;
+}
+
+p {
+    color: #f7f7f7;
+    text-align: center;
+}
+
+.contact-info {
+    margin: 50;
+}
+
+.social-links {
+    color: white;
+    text-align: center;
+}
+
+a {
+    color: rgb(0, 225, 255);
+}
+
+.feedback-form {
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(63, 202, 248, 0.945);
+}
+
+.rating {
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(63, 202, 248, 0.945);
+}
+
+select, input, textarea{
+    color: white;
+}
+
+
+.feedback-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.feedback-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback-form .feedbacksub:hover {
+    background: #45a049;
+}
+
+.feedback-form .feedbackreset:hover {
+    background: #e53935;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse to make the stars go from 1 to 5 */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rating-container input {
+    display: none;
+}
+
+.rating-container label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating-container input:checked ~ label,
+.rating-container label:hover,
+.rating-container label:hover ~ label {
+    color: #ffc107;
+}
+
+.button-container {
+    display: flex;
+}
+
+.btn-submit,
+.btn-reset {
+    margin: 5px auto;
+    display: block;
+    width: 150px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #0284c7;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+.btn-reset {
+    background-color: #0284c7;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #e53935;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #f2a365;
+}

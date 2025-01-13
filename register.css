@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(20, 6, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 145vh;
+}
+
+.form-container {
+    background-color: rgb(31, 15, 82);;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 470px;
+    width: 100%;
+}
+
+h1,h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f2a365;
+}
+
+.login {
+    margin-bottom: 20px;
+    color: #f2a365;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+fieldset {
+    border: 1px solid #f2a365;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+    color: #f2a365;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    color: #f2a365;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #f2a365;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    border-color: #f2a365;
+    outline: none;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-submit {
+    background-color: #007BFF;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-reset {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #d32f2f;
+}
+
+@media (max-width: 500px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.error {
+    color: rgb(248, 82, 31);
+    font-size: smaller;
+}
+
+a {
+    color: rgb(0, 187, 255);
+}

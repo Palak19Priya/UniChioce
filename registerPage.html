@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unichoice Registration</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create Your Account</h1>
+        <h4>Already have an account? <a href="loginForm.html"><font>Login</font></a></h4>
+        <form id="registrationForm">
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" oninput="upperCase()" onfocus="highlightField(this)">
+                <span id="fullnameError" class="error"></span>
+
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" onfocus="highlightField(this)">
+                <span id="dobError" class="error"></span>
+
+                <label for="gender">Gender *</label>
+                <select id="gender" name="gender">
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="notsay">Prefer not to say</option>
+                </select>
+                <span id="genderError" class="error"></span>
+
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" onfocus="highlightField(this)">
+                <span id="emailError" class="error"></span>
+
+                <label for="phone">Contact Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="1234567890" pattern="[0-9]{10}" onfocus="highlightField(this)">
+                <span id="phoneError" class="error"></span>
+            </fieldset>
+
+            <!-- Account Details -->
+            <fieldset>
+                <legend>Account Details</legend>
+
+                <label for="username">Username *</label>
+                <input type="text" id="username" name="username" placeholder="Create a username" onfocus="highlightField(this)">
+                <span id="usernameError" class="error"></span>
+
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" placeholder="Create a password (minimum 8 characters)" minlength="8" onfocus="highlightField(this)">
+                <span id="passwordError" class="error"></span>
+
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" minlength="8" onfocus="highlightField(this)">
+                <span id="confirmPasswordError" class="error"></span>
+            </fieldset>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="submit" class="btn-submit">Register</button>
+                <button type="reset" class="btn-reset">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function highlightField(field) {
+            field.style.background = "#cedfdf";
+        }
+
+        function upperCase() {
+            const nameField = document.getElementById("fullname");
+            nameField.value = nameField.value.toUpperCase();
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Reset error messages
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+
+            const fullname = document.getElementById('fullname').value.trim();
+            const dob = document.getElementById('dob').value;
+            const gender = document.getElementById('gender').value;
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            let hasError = false;
+
+            // Full Name validation
+            if (!fullname) {
+                document.getElementById('fullnameError').textContent = 'Full name is required.';
+                hasError = true;
+            } else if (!/^[A-Z ]{3,50}$/.test(fullname)) {
+                document.getElementById('fullnameError').textContent = 'Name should only have alphabets and be at least 3 characters.';
+                hasError = true;
+            }
+
+            // Date of Birth validation
+            if (!dob) {
+                document.getElementById('dobError').textContent = 'Date of birth is required.';
+                hasError = true;
+            }
+
+            // Gender validation
+            if (!gender) {
+                document.getElementById('genderError').textContent = 'Please select a gender.';
+                hasError = true;
+            }
+
+            // Email validation
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                hasError = true;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                hasError = true;
+            }
+
+            // Phone validation
+            if (!phone) {
+                document.getElementById('phoneError').textContent = 'Contact number is required.';
+                hasError = true;
+            } else if (!/^[0-9]{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Contact number must be 10 digits.';
+                hasError = true;
+            }
+
+            // Username validation
+            if (!username) {
+                document.getElementById('usernameError').textContent = 'Username is required.';
+                hasError = true;
+            } else if (!/^[a-zA-Z0-9_]{1,20}$/.test(username)) {
+                document.getElementById('usernameError').textContent = 'Username must be alphanumeric and at most 20 characters.';
+                hasError = true;
+            }
+
+            // Password validation
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Password is required.';
+                hasError = true;
+            } else if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+                hasError = true;
+            }
+
+            // Confirm Password validation
+            if (confirmPassword !== password) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                hasError = true;
+            }
+
+            if (!hasError) {
+                alert('Form submitted successfully.');
+                // Submit the form or perform other actions here
+            }
+        });
+    </script>
+</body>
+</html>

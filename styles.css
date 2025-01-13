@@ -1,0 +1,85 @@
+body {
+    margin-left: 20;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+.container{
+    width: 90%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(9,0,77,0.65),rgba(9,0,77,0.65)),url(ba.jpg);
+    background-size: cover;
+    background-position: fixed;
+    padding: 10px 8%;
+}
+nav{ width: 100%;
+display:flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+}
+.logo{
+    width: 250px;
+    cursor: pointer;
+}
+nav ul{
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-right: 60px;
+}
+    nav ul li{
+        display: inline-block;
+        margin: 10px 20px;
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.button{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    background: #232868;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+.button img{
+    width: 20px;
+    margin-right: 10px;
+}
+.content{
+    margin-top: 10%;
+    color: #fff;
+    max-width: 620px;
+}
+.content h1{
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 55px;
+    margin-bottom: 30px;
+}
+.content form{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 30px;
+}
+.content form input{
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.content form .button{
+    font-size: 15px;
+    padding: 10px 30px;
+}

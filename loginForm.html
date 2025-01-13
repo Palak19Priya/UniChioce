@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="loginCSS.css" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Welcome Back!</h1>
+            <form id="loginForm" action="#" method="post" onsubmit="return validateForm()">
+                
+                <input type="text" id="username" name="username" placeholder="Username" class="input-field" required><br>
+                
+                <input type="password" id="password" name="password" placeholder="Password" class="input-field" required><br>
+                <button type="submit" class="login-button">Log In</button>
+                <p>Don't have an account? <a href="registerPage.html">Sign Up</a></p>
+                <p><a href="UniChoice Main page.html">Home Page</a></p>
+            </form>
+            <div id="errorMessages" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessages = document.getElementById('errorMessages');
+            var isValid = true;
+            errorMessages.innerHTML = '';
+
+            if (username.trim() === '') {
+                errorMessages.innerHTML += '<p>Username is required</p>';
+                isValid = false;
+            }
+
+            if (password.trim() === '') {
+                errorMessages.innerHTML += '<p>Password is required</p>';
+                isValid = false;
+            }
+
+            return isValid;
+            if (password.length < 8) {
+                passwordError.textContent = "Password must be at least 8 characters long";
+                return false;
+            } else {
+                passwordError.textContent = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
