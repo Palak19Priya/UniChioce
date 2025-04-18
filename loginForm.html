@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link href="loginCSS.css" rel="stylesheet">
-    
+    <title>Login - UniChoice</title>
+    <link rel="stylesheet" href="loginCSS.css">
 </head>
 <body>
-
     <div class="login-container">
         <div class="login-form">
             <h1>Welcome Back!</h1>
-            <form id="loginForm" action="#" method="post" onsubmit="return validateForm()">
-                
-                <input type="text" id="username" name="username" placeholder="Username" class="input-field" required><br>
-                
-                <input type="password" id="password" name="password" placeholder="Password" class="input-field" required><br>
+            <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" class="input-field" required>
+                <input type="password" id="password" name="password" placeholder="Password" class="input-field" required>
                 <button type="submit" class="login-button">Log In</button>
                 <p>Don't have an account? <a href="registerPage.html">Sign Up</a></p>
                 <p><a href="index.html">Home Page</a></p>
@@ -26,32 +22,33 @@
     </div>
 
     <script>
-        function validateForm() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var errorMessages = document.getElementById('errorMessages');
-            var isValid = true;
-            errorMessages.innerHTML = '';
-
-            if (username.trim() === '') {
-                errorMessages.innerHTML += '<p>Username is required</p>';
-                isValid = false;
-            }
-
-            if (password.trim() === '') {
-                errorMessages.innerHTML += '<p>Password is required</p>';
-                isValid = false;
-            }
-
-            return isValid;
-            if (password.length < 8) {
-                passwordError.textContent = "Password must be at least 8 characters long";
-                return false;
-            } else {
-                passwordError.textContent = "";
-                return true;
-            }
-        }
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(data.message);
+                    // Store login status in localStorage
+                    localStorage.setItem('loggedIn', 'true');
+                    localStorage.setItem('fullname', data.fullname);
+                    // Redirect to home page
+                    window.location.href = 'index.html';
+                } else {
+                    document.getElementById('errorMessages').textContent = data.message;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('errorMessages').textContent = 'An error occurred during login';
+            });
+        });
     </script>
 </body>
 </html>
