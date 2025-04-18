@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Dream College - UniChoice</title>
+    <link rel="stylesheet" href="collegeFinderstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Find Your Dream College/University</h1>
+            <p>Let's discover the perfect educational path for you</p>
+        </div>
+        
+        <div class="search-section">
+            <form class="search-form">
+                <!-- ACADEMIC PREFERENCES -->
+                <div class="form-section">
+                    <h2>Academic Preferences</h2>
+                    <div class="form-group">
+                        <label for="course">Preferred Course/Stream*</label>
+                        <select id="course" name="course" required>
+                            <option value="">Select Course</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="bsc">B.Sc</option>
+                            <option value="ba">BA</option>
+                            <option value="bcom">B.Com</option>
+                            <option value="bca">BCA</option>
+                            <option value="mtech">M.Tech</option>
+                            <option value="msc">M.Sc</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="major">Desired Major/Specialization*</label>
+                        <input type="text" id="major" name="major" placeholder="e.g., Computer Science, Psychology" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution">Type of Institution*</label>
+                        <select id="institution" name="institution" required>
+                            <option value="">Select Type</option>
+                            <option value="university">University</option>
+                            <option value="college">College</option>
+                            <option value="autonomous">Autonomous</option>
+                            <option value="deemed">Deemed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mode">Mode of Study*</label>
+                        <select id="mode" name="mode" required>
+                            <option value="">Select Mode</option>
+                            <option value="fulltime">Full-time</option>
+                            <option value="parttime">Part-time</option>
+                            <option value="distance">Distance Learning</option>
+                            <option value="online">Online</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- LOCATION PREFERENCES -->
+                <div class="form-section">
+                    <h2>Location Preferences</h2>
+                    <div class="form-group">
+                        <label for="country">Preferred Country*</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="india">India</option>
+                            <option value="usa">USA</option>
+                            <option value="uk">UK</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">Preferred State/Region/City*</label>
+                        <input type="text" id="region" name="region" placeholder="e.g., Karnataka, California" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="campus">Campus Setting*</label>
+                        <select id="campus" name="campus" required>
+                            <option value="">Select Setting</option>
+                            <option value="urban">Urban</option>
+                            <option value="rural">Rural</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ACADEMIC BACKGROUND -->
+                <div class="form-section">
+                    <h2>Academic Background</h2>
+                    <div class="form-group">
+                        <label for="10thpercentage">10th Percentage or CGPA*</label>
+                        <input type="text" id="10thpercentage" name="10thpercentage" step="0.01" min="0" max="100" placeholder="enter your 10th marks" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="12thpercentage">12th/PU Percentage or CGPA*</label>
+                        <input type="text" id="12thpercentage" name="12thpercentage" step="0.01" min="0" max="100" placeholder="enter your 12th marks" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exam">Competitive Exam Scores</label>
+                        <input type="text" id="exam" name="exam" placeholder="e.g., JEE: 95%, SAT: 1400">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Admission Preference*</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="direct" name="admission" value="direct" required>
+                            <label for="direct">Direct Admission</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="radio" id="counseling" name="admission" value="counseling">
+                            <label for="counseling">Through Counseling</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXTRA CURRICULARS -->
+                <div class="form-section">
+                    <h2>Extra Curriculars</h2>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="sports" name="sports">
+                        <label for="sports">Sports</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="painting" name="painting">
+                        <label for="painting">Painting</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="dance" name="dance">
+                        <label for="dance">Dance and Music</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="other">Other Activities</label>
+                        <input type="text" id="other" name="other" rows="3" placeholder="Specify any other activities"></input>
+                    </div>
+                </div>
+
+                <!-- FINANCIAL PREFERENCES -->
+                <div class="form-section">
+                    <h2>Financial Preferences</h2>
+                    <div class="form-group">
+                        <label for="budget">Budget Range (per annum)*</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select Budget Range</option>
+                            <option value="low">Under Rs. 1,00,000</option>
+                            <option value="medium">Rs. 1,00,000 - Rs. 3,00,000</option>
+                            <option value="high">Rs. 3,00,000 - Rs. 5,00,000</option>
+                            <option value="premium">Above Rs. 5,00,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Scholarship*</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="scholarship_yes" name="scholarship" value="yes" required>
+                            <label for="scholarship_yes">Yes</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="radio" id="scholarship_no" name="scholarship" value="no">
+                            <label for="scholarship_no">No</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Education Loan*</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="loan_yes" name="loan" value="yes" required>
+                            <label for="loan_yes">Yes</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="radio" id="loan_no" name="loan" value="no">
+                            <label for="loan_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit">Search Colleges</button>
+            </form>
+        </div>
+        
+        <div class="back-btn">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Searching...';
+            submitButton.disabled = true;
+            
+            // Get form data correctly
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Process all form fields properly
+            for (const [key, value] of formData.entries()) {
+                console.log(`Field: ${key}, Value: ${value}, Type: ${typeof value}`);
+                data[key] = value;
+            }
+            
+            // Manually handle checkboxes (they only appear in FormData when checked)
+            data.sports = document.getElementById('sports').checked;
+            data.painting = document.getElementById('painting').checked;
+            data.dance = document.getElementById('dance').checked;
+            
+            // Ensure radio button values are properly set
+            const admissionElem = document.querySelector('input[name="admission"]:checked');
+            if (admissionElem) data.admission = admissionElem.value;
+            
+            const scholarshipElem = document.querySelector('input[name="scholarship"]:checked');
+            if (scholarshipElem) data.scholarship = scholarshipElem.value;
+            
+            const loanElem = document.querySelector('input[name="loan"]:checked');
+            if (loanElem) data.loan = loanElem.value;
+            
+            // Explicitly convert percentage fields to numbers
+            if (data['10thpercentage']) {
+                data['10thpercentage'] = parseFloat(data['10thpercentage']);
+            }
+            
+            if (data['12thpercentage']) {
+                data['12thpercentage'] = parseFloat(data['12thpercentage']);
+            }
+            
+            // Add debug info
+            console.log('Form data to be sent:', data);
+            
+            // Validate required fields
+            const requiredFields = ['course', 'major', 'institution', 'mode', 'country', 'region', 'campus', '10thpercentage', '12thpercentage', 'admission', 'budget', 'scholarship', 'loan'];
+            const missingFields = requiredFields.filter(field => !data[field]);
+
+            if (missingFields.length > 0) {
+                alert('Please fill in all required fields: ' + missingFields.join(', '));
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                return;
+            }
+
+            // Create a debug div to show feedback
+            let debugDiv = document.getElementById('debug-info');
+            if (!debugDiv) {
+                debugDiv = document.createElement('div');
+                debugDiv.id = 'debug-info';
+                debugDiv.style.margin = '20px 0';
+                debugDiv.style.padding = '10px';
+                debugDiv.style.backgroundColor = '#f8f9fa';
+                debugDiv.style.border = '1px solid #ddd';
+                debugDiv.style.borderRadius = '5px';
+                this.after(debugDiv);
+            }
+            
+            debugDiv.innerHTML = '<h3>Sending request...</h3>';
+            
+            // Convert to a plain object before sending
+            const jsonData = JSON.stringify(data);
+            console.log('JSON data:', jsonData);
+            
+            // Send search request
+            fetch('college_search.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: jsonData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response headers:', [...response.headers].map(h => `${h[0]}: ${h[1]}`).join(', '));
+                
+                // First get the raw response text
+                return response.text().then(text => {
+                    debugDiv.innerHTML += `<p>Raw response: ${text.length > 200 ? text.substring(0, 200) + '...' : text}</p>`;
+                    
+                    // Try to parse as JSON, but handle case where it's not valid JSON
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        console.error('Invalid JSON response:', text);
+                        debugDiv.innerHTML += `<p style="color: red;">Error parsing JSON: ${e.message}</p>`;
+                        throw new Error('Server returned invalid JSON response');
+                    }
+                });
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                debugDiv.innerHTML += `<p>Status: ${data.status}, Message: ${data.message}</p>`;
+                
+                if (data.status === 'success') {
+                    displayResults(data.colleges);
+                    debugDiv.style.display = 'none'; // Hide debug info on success
+                } else {
+                    throw new Error(data.message || 'Unknown error occurred');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                debugDiv.innerHTML += `<p style="color: red;">Error: ${error.message}</p>`;
+                alert('An error occurred while searching for colleges: ' + error.message);
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
+        });
+
+        function displayResults(colleges) {
+            const searchSection = document.querySelector('.search-section');
+            
+            // Remove any existing results
+            const existingResults = document.querySelector('.results-container');
+            if (existingResults) {
+                existingResults.remove();
+            }
+            
+            // Create results container
+            const resultsContainer = document.createElement('div');
+            resultsContainer.className = 'results-container';
+            resultsContainer.style.marginTop = '20px';
+            resultsContainer.style.padding = '20px';
+            resultsContainer.style.backgroundColor = 'white';
+            resultsContainer.style.borderRadius = '10px';
+            resultsContainer.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+
+            if (!colleges || colleges.length === 0) {
+                resultsContainer.innerHTML = '<h2>No matching colleges found</h2>';
+                searchSection.appendChild(resultsContainer);
+                return;
+            }
+
+            // Create results header
+            const resultsHeader = document.createElement('h2');
+            resultsHeader.textContent = `${colleges.length} Matching Colleges Found`;
+            resultsHeader.style.color = '#011170';
+            resultsHeader.style.marginBottom = '20px';
+            resultsContainer.appendChild(resultsHeader);
+
+            // Create results grid
+            const resultsGrid = document.createElement('div');
+            resultsGrid.style.display = 'grid';
+            resultsGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
+            resultsGrid.style.gap = '20px';
+
+            // Add each college to the grid
+            colleges.forEach(college => {
+                const collegeCard = document.createElement('div');
+                collegeCard.className = 'college-card';
+                collegeCard.style.padding = '15px';
+                collegeCard.style.backgroundColor = '#f5f5f5';
+                collegeCard.style.borderRadius = '8px';
+                collegeCard.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                collegeCard.style.position = 'relative';
+
+                // Match percentage badge
+                const matchBadge = document.createElement('div');
+                matchBadge.style.position = 'absolute';
+                matchBadge.style.top = '10px';
+                matchBadge.style.right = '10px';
+                matchBadge.style.backgroundColor = '#011170';
+                matchBadge.style.color = 'white';
+                matchBadge.style.padding = '5px 10px';
+                matchBadge.style.borderRadius = '15px';
+                matchBadge.style.fontSize = '14px';
+                matchBadge.textContent = `${college.match_percentage}% Match`;
+                collegeCard.appendChild(matchBadge);
+
+                // College name
+                const name = document.createElement('h3');
+                name.textContent = college.name;
+                name.style.color = '#011170';
+                name.style.marginBottom = '10px';
+                name.style.marginTop = '0';
+                collegeCard.appendChild(name);
+
+                // College details
+                const details = document.createElement('div');
+                details.style.color = '#333';
+                details.innerHTML = `
+                    <p><strong>Type:</strong> ${college.type}</p>
+                    <p><strong>Location:</strong> ${college.region}, ${college.country}</p>
+                    <p><strong>Annual Fees:</strong> ₹${Number(college.annual_fees).toLocaleString()}</p>
+                    <p><strong>Rating:</strong> ${college.rating}/5</p>
+                    <p><strong>Courses:</strong> ${college.courses_offered}</p>
+                    <p><strong>Majors:</strong> ${college.majors_available}</p>
+                `;
+                collegeCard.appendChild(details);
+
+                // Contact information
+                const contact = document.createElement('div');
+                contact.style.marginTop = '15px';
+                contact.style.paddingTop = '10px';
+                contact.style.borderTop = '1px solid #ddd';
+                contact.innerHTML = `
+                    <p><strong>Website:</strong> <a href="${college.website}" target="_blank">Visit Website</a></p>
+                    <p><strong>Email:</strong> ${college.contact_email}</p>
+                    <p><strong>Phone:</strong> ${college.contact_phone}</p>
+                `;
+                collegeCard.appendChild(contact);
+
+                resultsGrid.appendChild(collegeCard);
+            });
+
+            resultsContainer.appendChild(resultsGrid);
+            searchSection.appendChild(resultsContainer);
+            
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html> 
