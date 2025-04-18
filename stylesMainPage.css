@@ -27,7 +27,7 @@ nav {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 70px; /* Add margin to prevent content from overlapping with fixed navbar */
+    margin-top: 40px; /* Add margin to prevent content from overlapping with fixed navbar */
 }
 
 
