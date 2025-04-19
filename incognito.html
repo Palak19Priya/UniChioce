@@ -1,87 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INCOGNITO MODE</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #333;
-            border-radius: 10px;
-            background-color: #011170;
-            box-shadow: 0px 0px 10px rgba(65, 137, 170, 0.1);
-        }
-        input, button {
-            margin: 10px;
-            padding: 10px;
-            width: 90%;
-            border: none;
-            border-radius: 5px;
-        }
-        input {
-            background-color: #d6d6ea;
-            color: rgb(12, 0, 0);
-        }
-        button {
-            background-color: #72aeef;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .home-btn {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University Search - Incognito Mode</title>
+  <style>
+    body {
+      background-color: #0d1b2a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #1b263b;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #72aeef;
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 90%;
+      padding: 12px;
+      margin: 10px auto;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      display: block;
+    }
+
+    input {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    button {
+      background-color: #72aeef;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .home-btn {
+      background-color: #7dc6ff;
+    }
+
+    .home-btn:hover {
+      background-color: #4b9be0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2>INCOGNITO MODE</h2>
-        <p>Search for universities privately without tracking your activity.</p>
-        <form method="POST" action="search_results.php" id="incognitoForm">
-            <input type="text" name="university_query" placeholder="Enter university name" required>
-            <input type="number" name="budget" placeholder="Enter your Budget" required>
-            <input type="text" name="location" placeholder="Enter your preferred location" required>
-            <button type="submit">Search</button>
-        </form>
-        <br>
-        <button class="home-btn" onclick="window.location.href='index.html'">Back to Home</button>
-    </div>
-    <script>
-        document.getElementById('incognitoForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(this);
-            
-            fetch('search_results.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    alert(data.message);
-                    // Here you would typically show search results
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred during search');
-            });
-        });
-    </script>
+  <div class="container">
+    <h2>INCOGNITO MODE</h2>
+    <p>Search for universities privately without tracking your activity.</p>
+
+    <form id="incognitoForm">
+      <input type="text" name="university_query" placeholder="Enter university name" required />
+      <input type="number" name="budget" placeholder="Enter your Budget (INR)" required />
+      <input type="text" name="location" placeholder="Enter your preferred location" required />
+      <button type="submit">Search</button>
+    </form>
+
+    <button class="home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+  </div>
+
+  <script>
+    document.getElementById("incognitoForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("incognito_search.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === "success") {
+          localStorage.setItem("searchResults", JSON.stringify(data.data));
+          window.location.href = "results.html";
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred during search.");
+      });
+    });
+  </script>
 </body>
 </html>

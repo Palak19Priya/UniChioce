@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University Search Results</title>
+  <style>
+    body {
+      background-color: #0d1b2a;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #1b263b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      text-align: center;
+      color: #72aeef;
+    }
+
+    .card {
+      background-color: #324a6d;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-right: 20px;
+      background: white;
+      border-radius: 10px;
+      padding: 5px;
+    }
+
+    .card-content {
+      flex: 1;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: #f9fafb;
+    }
+
+    .card-content p {
+      margin: 5px 0;
+    }
+
+    .map-btn {
+      background-color: #72aeef;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .map-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      background-color: #72aeef;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Search Results</h2>
+    <div id="resultsContainer"></div>
+    <button class="back-btn" onclick="window.location.href='incognito.html'">Search Again</button>
+  </div>
+
+  <script>
+    const universityLogos = {
+        "Indian Institute of Technology Bombay": "https://thumbs.dreamstime.com/z/university-campus-building-hall-education-students-cartoon-vector-illustration-brotherhood-smart-nerd-classes-hipster-young-155883168.jpg",
+        "Indian Institute of Technology Delhi": "https://thumbs.dreamstime.com/z/university-campus-building-hall-education-students-cartoon-vector-illustration-brotherhood-smart-nerd-classes-hipster-young-155883168.jpg",
+        "Delhi University": "https://thumbs.dreamstime.com/z/university-campus-building-hall-education-students-cartoon-vector-illustration-brotherhood-smart-nerd-classes-hipster-young-155883168.jpg",
+        "Banaras Hindu University": "https://thumbs.dreamstime.com/z/university-campus-building-hall-education-students-cartoon-vector-illustration-brotherhood-smart-nerd-classes-hipster-young-155883168.jpg",
+        "Jawaharlal Nehru University": "https://thumbs.dreamstime.com/z/university-campus-building-hall-education-students-cartoon-vector-illustration-brotherhood-smart-nerd-classes-hipster-young-155883168.jpg",
+        // Add other universities as needed...
+      };
+      
+  
+    const data = JSON.parse(localStorage.getItem("searchResults")) || [];
+  
+    const resultsContainer = document.getElementById("resultsContainer");
+  
+    if (data.length === 0) {
+      resultsContainer.innerHTML = "<p>No universities matched your search.</p>";
+    } else {
+      data.forEach(university => {
+        const card = document.createElement("div");
+        card.className = "card";
+  
+        const logo = universityLogos[university.name] || "https://via.placeholder.com/100x100?text=No+Logo";
+  
+        const minBudget = university.min_budget ? university.min_budget : "Not specified";
+        const maxBudget = university.max_budget ? university.max_budget : "Not specified";
+  
+        card.innerHTML = `
+          <img src="${logo}" alt="Logo">
+          <div class="card-content">
+            <h3>${university.name}</h3>
+            <p><strong>Location:</strong> ${university.location}</p>
+            <p><strong>Budget Range:</strong> ₹${minBudget} - ₹${maxBudget}</p>
+            <button class="map-btn" onclick="openMap('${university.name}, ${university.location}')">📍 View on Map</button>
+          </div>
+        `;
+  
+        resultsContainer.appendChild(card);
+      });
+    }
+  
+    function openMap(query) {
+      const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+  
+  
+</body>
+</html>
