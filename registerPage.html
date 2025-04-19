@@ -10,7 +10,7 @@
     <div class="form-container">
         <h1>Create Your Account</h1>
         <h4>Already have an account? <a href="loginForm.html"><font>Login</font></a></h4>
-        <form id="registrationForm">
+        <form id="registrationForm" method="POST" action="register.php">
             <!-- Personal Information -->
             <fieldset>
                 <legend>Personal Information</legend>
@@ -78,89 +78,30 @@
         }
 
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
+            event.preventDefault();
+            
             // Reset error messages
             document.querySelectorAll('.error').forEach(error => error.textContent = '');
 
-            const fullname = document.getElementById('fullname').value.trim();
-            const dob = document.getElementById('dob').value;
-            const gender = document.getElementById('gender').value;
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            let hasError = false;
-
-            // Full Name validation
-            if (!fullname) {
-                document.getElementById('fullnameError').textContent = 'Full name is required.';
-                hasError = true;
-            } else if (!/^[A-Z ]{3,50}$/.test(fullname)) {
-                document.getElementById('fullnameError').textContent = 'Name should only have alphabets and be at least 3 characters.';
-                hasError = true;
-            }
-
-            // Date of Birth validation
-            if (!dob) {
-                document.getElementById('dobError').textContent = 'Date of birth is required.';
-                hasError = true;
-            }
-
-            // Gender validation
-            if (!gender) {
-                document.getElementById('genderError').textContent = 'Please select a gender.';
-                hasError = true;
-            }
-
-            // Email validation
-            if (!email) {
-                document.getElementById('emailError').textContent = 'Email is required.';
-                hasError = true;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                document.getElementById('emailError').textContent = 'Invalid email format.';
-                hasError = true;
-            }
-
-            // Phone validation
-            if (!phone) {
-                document.getElementById('phoneError').textContent = 'Contact number is required.';
-                hasError = true;
-            } else if (!/^[0-9]{10}$/.test(phone)) {
-                document.getElementById('phoneError').textContent = 'Contact number must be 10 digits.';
-                hasError = true;
-            }
-
-            // Username validation
-            if (!username) {
-                document.getElementById('usernameError').textContent = 'Username is required.';
-                hasError = true;
-            } else if (!/^[a-zA-Z0-9_]{1,20}$/.test(username)) {
-                document.getElementById('usernameError').textContent = 'Username must be alphanumeric and at most 20 characters.';
-                hasError = true;
-            }
-
-            // Password validation
-            if (!password) {
-                document.getElementById('passwordError').textContent = 'Password is required.';
-                hasError = true;
-            } else if (password.length < 8) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
-                hasError = true;
-            }
-
-            // Confirm Password validation
-            if (confirmPassword !== password) {
-                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
-                hasError = true;
-            }
-
-            if (!hasError) {
-                alert('Form submitted successfully.');
-                // Submit the form or perform other actions here
-            }
+            const formData = new FormData(this);
+            
+            fetch('register.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(data.message);
+                    window.location.href = 'loginForm.html';
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during registration');
+            });
         });
     </script>
 </body>

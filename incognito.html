@@ -49,15 +49,39 @@
     <div class="container">
         <h2>INCOGNITO MODE</h2>
         <p>Search for universities privately without tracking your activity.</p>
-        <form method="POST" action="search_results.php">
+        <form method="POST" action="search_results.php" id="incognitoForm">
             <input type="text" name="university_query" placeholder="Enter university name" required>
-            <input type="" name="university_query" placeholder="Enter your Budget" required>
-            <input type="text" name="university_query" placeholder="Enter your preferred location" required>
-
+            <input type="number" name="budget" placeholder="Enter your Budget" required>
+            <input type="text" name="location" placeholder="Enter your preferred location" required>
             <button type="submit">Search</button>
         </form>
         <br>
         <button class="home-btn" onclick="window.location.href='index.html'">Back to Home</button>
     </div>
+    <script>
+        document.getElementById('incognitoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('search_results.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(data.message);
+                    // Here you would typically show search results
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during search');
+            });
+        });
+    </script>
 </body>
 </html>
