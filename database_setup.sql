@@ -107,3 +107,34 @@ INSERT INTO colleges (name, type, country, region, campus_setting, courses_offer
 ('Symbiosis International University', 'Deemed', 'India', 'Maharashtra', 'Urban', 'BA,B.Sc,BBA,MBA', 'Psychology,Business,Computer Science', 'Full-time', 75.00, 70.00, 'direct', TRUE, TRUE, TRUE, 300000.00, TRUE, TRUE, 4.5, 'https://www.siu.edu.in', 'info@siu.edu.in', '+912025623333'),
 ('Vellore Institute of Technology', 'Deemed', 'India', 'Tamil Nadu', 'Urban', 'B.Tech,M.Tech,B.Sc', 'Computer Science,Electronics,Biotechnology', 'Full-time', 80.00, 75.00, 'direct', TRUE, TRUE, TRUE, 350000.00, TRUE, TRUE, 4.6, 'https://vit.ac.in', 'info@vit.ac.in', '+914162242222'),
 ('Loyola College', 'Autonomous', 'India', 'Tamil Nadu', 'Urban', 'BA,B.Sc,B.Com', 'Psychology,Computer Science,Commerce', 'Full-time', 75.00, 70.00, 'direct', TRUE, TRUE, TRUE, 150000.00, TRUE, TRUE, 4.4, 'https://www.loyolacollege.edu', 'info@loyolacollege.edu', '+914423813333'); 
+
+/' create db for incog
+CREATE TABLE universities (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    location VARCHAR(255),
+    min_budget INT,
+    max_budget INT
+   );
+
+   UPDATE universities
+SET min_budget = 50000,  -- Example minimum budget value
+    max_budget = 100000; -- Example maximum budget value
+
+  INSERT INTO universities (name, budget_range, location, description) VALUES
+('Indian Institute of Technology Bombay', '1000000', 'Mumbai, Maharashtra', 'Premier engineering institute offering undergraduate to doctoral programs.'),
+('Indian Institute of Technology Delhi', '1000000', 'New Delhi', 'Top-ranked institute in engineering and research.'),
+('Indian Institute of Technology Madras', '950000', 'Chennai, Tamil Nadu', 'Leading technical university known for research and innovation.'),
+('Jawaharlal Nehru University (JNU)', '200000', 'New Delhi', 'Renowned for social sciences, international studies, and language programs.'),
+('Banaras Hindu University (BHU)', '150000', 'Varanasi, Uttar Pradesh', 'Comprehensive university offering education in arts, science, commerce, and engineering.'),
+('University of Delhi', '100000', 'New Delhi', 'Top public university with diverse colleges under its umbrella.'),
+('Anna University', '90000', 'Chennai, Tamil Nadu', 'State technical university with numerous affiliated engineering colleges.'),
+('Vellore Institute of Technology (VIT)', '180000', 'Vellore, Tamil Nadu', 'Private engineering university with strong placement records.'),
+('Amity University', '250000', 'Noida, Uttar Pradesh', 'Private university with courses across multiple disciplines.'),
+('Manipal Academy of Higher Education', '350000', 'Manipal, Karnataka', 'Private university known for medicine, engineering, and management.'),
+('Shiv Nadar University', '300000', 'Greater Noida, Uttar Pradesh', 'Private interdisciplinary research-focused university.'),
+('O.P. Jindal Global University', '450000', 'Sonipat, Haryana', 'Top private university focused on law, business, and international affairs.'),
+('Jadavpur University', '50000', 'Kolkata, West Bengal', 'Prestigious public university especially strong in engineering and arts.'),
+('Jamia Millia Islamia', '100000', 'New Delhi', 'Central university offering courses in engineering, humanities, and sciences.'),
+('Symbiosis International University', '200000', 'Pune, Maharashtra', 'Private multi-disciplinary university offering law, business, media and design programs.');
+  
